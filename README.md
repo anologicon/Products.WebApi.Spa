@@ -21,5 +21,7 @@ And start the application
 ```
 dotnet run
 ```
+Then Will Open the Swagger 
 
 And start the sync API
+[Sync.WebApi](https://github.com/anologicon/Sync.WebApi)
