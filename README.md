@@ -45,5 +45,5 @@ dotnet run
 ```
 Then Will Open the Swagger 
 
-And start the sync API
+How to run the SyncWebApi
 [Sync.WebApi](https://github.com/anologicon/Sync.WebApi)
