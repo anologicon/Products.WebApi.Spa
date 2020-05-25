@@ -45,5 +45,9 @@ dotnet run
 ```
 Then Will Open the Swagger 
 
+If does not opened:
+
+http://localhost:49167
+
 How to run the SyncWebApi
 [Sync.WebApi](https://github.com/anologicon/Sync.WebApi)
