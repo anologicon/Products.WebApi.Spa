@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,10 @@ namespace Products.WebApi
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());
             
+            var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            
+            SwaggerConfig.AddSwagger(services, assemblyName);
+            
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -61,6 +66,8 @@ namespace Products.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            SwaggerConfig.UseSwagger(app);
             
             app.UseEndpoints(endpoints =>
             {
