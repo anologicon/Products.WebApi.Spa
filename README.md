@@ -17,6 +17,32 @@ Start the database
 docker-compose up
 ```
 
+## Database
+
+With your favorite client:
+
+```sql
+CREATE DATABASE ProductsWebApi
+```
+
+```sql
+CREATE SCHEMA product AUTHORIZATION postgres;
+```
+
+```sql
+CREATE TABLE product.product (
+	id serial NOT NULL,
+	price float8 NOT NULL,
+	"name" varchar NOT NULL,
+	stock int4 NOT NULL,
+	CONSTRAINT product_pk PRIMARY KEY (id)
+);
+```
+
+
+
+
+
 And start the application
 ```
 dotnet run
