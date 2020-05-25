@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Products.WebApi.Entities;
+using Products.WebApi.Integration;
 using Products.WebApi.Model;
 using Products.WebApi.Repository;
 
@@ -9,10 +10,13 @@ namespace Products.WebApi.Services
     public class ProductService
     {
         protected readonly ProductRepository _repository;
+        protected readonly SyncApiIntegration _integration;
 
-        public ProductService(ProductRepository repository)
+        
+        public ProductService(ProductRepository repository, SyncApiIntegration integration)
         {
             _repository = repository;
+            _integration = integration;
         }
 
         public ProductEntity NewProduct(ProductModel productModel)
@@ -27,6 +31,16 @@ namespace Products.WebApi.Services
             try
             {
                 _repository.Create(entity);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            try
+            {
+                _integration.CreateProductSync(entity);
             }
             catch (Exception e)
             {

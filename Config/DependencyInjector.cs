@@ -1,5 +1,6 @@
 using System.Reflection.Metadata;
 using Microsoft.Extensions.DependencyInjection;
+using Products.WebApi.Integration;
 using Products.WebApi.Repository;
 using Products.WebApi.Services;
 
@@ -15,6 +16,9 @@ namespace Products.WebApi.Config
             
             // Services
             services.AddScoped<ProductService>();
+            
+            // Integration
+            services.AddHttpClient<SyncApiIntegration>();
 
         }
     }
