@@ -14,7 +14,7 @@ In the project root
 
 Start the database
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ## Database
@@ -38,10 +38,6 @@ CREATE TABLE product.product (
 	CONSTRAINT product_pk PRIMARY KEY (id)
 );
 ```
-
-
-
-
 
 And start the application
 ```
